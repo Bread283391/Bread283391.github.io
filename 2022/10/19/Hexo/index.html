@@ -188,18 +188,51 @@
         <p>hexo学习笔记和疑难杂点</p>
 <span id="more"></span>
 
-<h3 id="部署至github"><a href="#部署至github" class="headerlink" title="部署至github"></a>部署至github</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Night__breeze/article/details/117607049">(100条消息) Hexo阶段三 – 将Hexo部署到github_Oliverloki的博客-CSDN博客_hexo部署到github</a></p>
-<h5 id="3、向git提交部署"><a href="#3、向git提交部署" class="headerlink" title="3、向git提交部署"></a>3、向git提交部署</h5><pre><code class="bash"># hexo deploy
+<h3 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/7b8faf77d1af">Hexo常用命令: - 简书 (jianshu.com)</a></p>
+<hr>
+<h3 id="部署至github"><a href="#部署至github" class="headerlink" title="部署至github"></a>部署至github</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Night__breeze/article/details/117607049">(100条消息) Hexo阶段三 – 将Hexo部署到github_Oliverloki的博客-CSDN博客_hexo部署到github（包括SSH配置）</a></p>
+<h4 id="1、清除缓存文件"><a href="#1、清除缓存文件" class="headerlink" title="1、清除缓存文件"></a>1、清除缓存文件</h4><p>清除缓存文件 <code>db.json</code> 和已生成的静态文件 <code>public</code></p>
+<pre><code class="bash"># hexo clean
+$ hexo cl
+</code></pre>
+<h4 id="2、生成网站静态文件"><a href="#2、生成网站静态文件" class="headerlink" title="2、生成网站静态文件"></a>2、生成网站静态文件</h4><p>生成网站静态文件到默认设置的 <code>public</code> 文件夹。</p>
+<ul>
+<li>便于查看网站生成的静态文件或者手动部署网站；</li>
+<li>如果使用自动部署，不需要先执行该命令；</li>
+<li><code>hexo g</code> 是 <code>hexo generate</code> 的缩写，命令效果一致。</li>
+</ul>
+<pre><code class="bash"># hexo generate
+$ hexo g
+</code></pre>
+<h4 id="3、向git提交部署"><a href="#3、向git提交部署" class="headerlink" title="3、向git提交部署"></a>3、向git提交部署</h4><pre><code class="bash"># hexo deploy
 $ hexo d
 </code></pre>
 <blockquote>
 <p>当执行 <code>hexo deploy</code> 时，Hexo 会将 <code>public</code> 目录中的文件和目录推送至 <code>_config.yml</code> 中指定的远端仓库和分支中，并且<strong>完全覆盖</strong>该分支下的已有内容。</p>
 <p>简单来说该指令集成了git的一部分操作</p>
 </blockquote>
+<hr>
 <h3 id="文章中插入图片"><a href="#文章中插入图片" class="headerlink" title="文章中插入图片"></a>文章中插入图片</h3><p>1、<strong>设置站点配置<code>_config.yml</code></strong>:将<code>post_asset_folder: false</code>改为<code>post_asset_folder: true</code></p>
 <p>2、<strong>安装插件</strong>:<code>npm install https://github.com/CodeFalling/hexo-asset-image -- save</code></p>
 <p>3、<strong>运行<code>hexo n &quot;XXXXXX&quot;</code></strong>,生成XXXXX.md博文时就会在<code>/source/_posts</code>目录下生成XXXXXX的文件夹，将你想在XXXXX博文中插入的照片放置到这个同名文件夹中即可，图片的命名随意。</p>
 <p>4、<strong>添加图片</strong>:在想添加的位置写入<code>![](图片名字.图片格式)</code>,例如<code>![](1.png)</code>。</p>
+<hr>
+<h3 id="经常遇到的问题"><a href="#经常遇到的问题" class="headerlink" title="经常遇到的问题"></a>经常遇到的问题</h3><h4 id="1、-unable-to-access…"><a href="#1、-unable-to-access…" class="headerlink" title="1、 unable to access…"></a>1、 unable to access…</h4><p><strong>问题：fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/Bread283391/Bread283391.github.io.git/&#39;">https://github.com/Bread283391/Bread283391.github.io.git/&#39;</a>: OpenSSL SSL_read: Connection was aborted, errno 10053</strong></p>
+<p><strong>解决办法：</strong></p>
+<p>重新生成 ssh key 将之前 GitHub 保存的秘匙删除</p>
+<pre><code class="bash">ssh-keygen -t rsa -C “your_email.com”
+</code></pre>
+<p><img src="/2022/10/19/Hexo/1.png"></p>
+<p>执行成功后，打开<code>C:\Users\user_name\.ssh</code>文件夹 ，<code>id_rsa.pub</code> 就是生成的公钥, 将其内容复制进 GitHub-&gt;Setting-&gt;SSH and GPG keys</p>
+<h4 id="2、bad-numeric-config…"><a href="#2、bad-numeric-config…" class="headerlink" title="2、bad numeric config…"></a>2、bad numeric config…</h4><p><strong>问题：fatal: bad numeric config value ‘“false”’ for ‘http.sslverify</strong></p>
+<p><strong>解决方法：</strong></p>
+<pre><code class="bash">git config --global --edit # 或者找到C:\Users\RMB(自己电脑的名)下找到 .gitconfig
+</code></pre>
+<pre><code class="bash"># 删除
+sslVerify=&quot;false&quot;    
+# 按 i 写入
+# 按esc后输出:wq退出编辑模式
+</code></pre>
 
     </div>
 
