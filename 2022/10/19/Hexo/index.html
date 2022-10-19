@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bread || </title>
+    <title>Bread || Hexo</title>
     <meta name="author" content="一个软面包">
     <meta name="description" content=" ">
     <meta name="keywords" content=" ">
@@ -165,107 +165,46 @@
                 </div>
 
                 <div id="main">
-                    
-<div id="archives">
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/19" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/19</div>
-                <a href="/2022/10/19/前端开发/">
-                    <h3>前端开发</h3>
-                </a>
-                <div class="info">
-                    
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Hexo </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/10/19
+        </span>
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/19" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/19</div>
-                <a href="/2022/10/19/有用的知识/">
-                    <h3>有用的知识</h3>
-                </a>
-                <div class="info">
-                    
+        
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/19" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/19</div>
-                <a href="/2022/10/19/Git/">
-                    <h3>Git</h3>
-                </a>
-                <div class="info">
-                    
+        
+    </div>
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/19" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/19</div>
-                <a href="/2022/10/19/Hexo/">
-                    <h3>Hexo</h3>
-                </a>
-                <div class="info">
-                    
+    <div class="content" v-pre>
+        <p>hexo学习笔记和疑难杂点</p>
+<span id="more"></span>
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/19" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/19</div>
-                <a href="/2022/10/19/Theme/">
-                    <h3>Theme</h3>
-                </a>
-                <div class="info">
-                    
+<h3 id="部署至github"><a href="#部署至github" class="headerlink" title="部署至github"></a>部署至github</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Night__breeze/article/details/117607049">(100条消息) Hexo阶段三 – 将Hexo部署到github_Oliverloki的博客-CSDN博客_hexo部署到github</a></p>
+<h5 id="3、向git提交部署"><a href="#3、向git提交部署" class="headerlink" title="3、向git提交部署"></a>3、向git提交部署</h5><pre><code class="bash"># hexo deploy
+$ hexo d
+</code></pre>
+<blockquote>
+<p>当执行 <code>hexo deploy</code> 时，Hexo 会将 <code>public</code> 目录中的文件和目录推送至 <code>_config.yml</code> 中指定的远端仓库和分支中，并且<strong>完全覆盖</strong>该分支下的已有内容。</p>
+<p>简单来说该指令集成了git的一部分操作</p>
+</blockquote>
+<h3 id="文章中插入图片"><a href="#文章中插入图片" class="headerlink" title="文章中插入图片"></a>文章中插入图片</h3><p>1、<strong>设置站点配置<code>_config.yml</code></strong>:将<code>post_asset_folder: false</code>改为<code>post_asset_folder: true</code></p>
+<p>2、<strong>安装插件</strong>:<code>npm install https://github.com/CodeFalling/hexo-asset-image -- save</code></p>
+<p>3、<strong>运行<code>hexo n &quot;XXXXXX&quot;</code></strong>,生成XXXXX.md博文时就会在<code>/source/_posts</code>目录下生成XXXXXX的文件夹，将你想在XXXXX博文中插入的照片放置到这个同名文件夹中即可，图片的命名随意。</p>
+<p>4、<strong>添加图片</strong>:在想添加的位置写入<code>![](图片名字.图片格式)</code>,例如<code>![](1.png)</code>。</p>
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/18" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/18</div>
-                <a href="/2022/10/18/hello-world/">
-                    <h3>Hello World</h3>
-                </a>
-                <div class="info">
-                    
+    </div>
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
     
 </div>
-
                      
 <footer id="footer">
     <div class="footer-wrap">

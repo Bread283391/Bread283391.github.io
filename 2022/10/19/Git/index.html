@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bread || my new post</title>
+    <title>Bread || Git</title>
     <meta name="author" content="一个软面包">
     <meta name="description" content=" ">
     <meta name="keywords" content=" ">
@@ -169,7 +169,7 @@
 <link rel="stylesheet" href="/css/post-body.css">
 <div class="article">
     <div>
-        <h1>my new post </h1>
+        <h1>Git </h1>
     </div>
     <div class="info">
         <span class="date">
@@ -185,7 +185,31 @@
     </div>
 
     <div class="content" v-pre>
-        
+        <p> Git 日常学习笔记</p>
+<span id="more"></span>
+
+<h3 id="git基础指令"><a href="#git基础指令" class="headerlink" title="git基础指令"></a>git基础指令</h3><h4 id="1、提交代码"><a href="#1、提交代码" class="headerlink" title="1、提交代码"></a>1、提交代码</h4><h5 id="1-1、修改前先拉取最新代码（尽量减少冲突）"><a href="#1-1、修改前先拉取最新代码（尽量减少冲突）" class="headerlink" title="1.1、修改前先拉取最新代码（尽量减少冲突）"></a>1.1、修改前先拉取最新代码（尽量减少冲突）</h5><pre><code class="bash">$ git pull
+</code></pre>
+<h5 id="1-2、修改后准备提交查看目前缓冲区状态"><a href="#1-2、修改后准备提交查看目前缓冲区状态" class="headerlink" title="1.2、修改后准备提交查看目前缓冲区状态"></a>1.2、修改后准备提交查看目前缓冲区状态</h5><pre><code class="bash">$ git status 
+</code></pre>
+<p><img src="/2022/10/19/Git/1.png" alt=" "></p>
+<h5 id="1-3、把内容添加到本地-git-缓冲区中"><a href="#1-3、把内容添加到本地-git-缓冲区中" class="headerlink" title="1.3、把内容添加到本地 git 缓冲区中"></a>1.3、把内容添加到本地 git 缓冲区中</h5><pre><code class="bash"># 添加全部
+$ git add . 
+# 添加部分
+$ git add 文件名
+</code></pre>
+<h5 id="1-4、提交代码，将修改推送到远程git仓库中"><a href="#1-4、提交代码，将修改推送到远程git仓库中" class="headerlink" title="1.4、提交代码，将修改推送到远程git仓库中"></a>1.4、提交代码，将修改推送到远程git仓库中</h5><pre><code class="bash"># 引用的部分为提交说明，必须填写
+$ git commit -m &quot;提交代码&quot;
+</code></pre>
+<h5 id="1-5、将本地的分支版本上传到远程并合并"><a href="#1-5、将本地的分支版本上传到远程并合并" class="headerlink" title="1.5、将本地的分支版本上传到远程并合并"></a>1.5、将本地的分支版本上传到远程并合并</h5><pre><code class="bash"># git push 的命令格式一般是
+git push &lt;远程主机名&gt; &lt;本地分支名&gt;：&lt;远程分支名&gt;
+例如：git push origin master:master
+
+当然，一般情况下，我们都不用写后面的，直接 git push 即可。
+
+$ git push
+</code></pre>
+
     </div>
 
     
