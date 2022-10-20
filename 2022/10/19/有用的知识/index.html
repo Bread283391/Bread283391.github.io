@@ -194,13 +194,16 @@
 <p>样式层：css；美化页面，搭建布局结构。</p>
 <p>行为层：JavaScript；给页面添加交互效果，实现动态交互等。</p>
 </blockquote>
+<hr>
 <h4 id="2、JavaScript的编写位置是哪里？"><a href="#2、JavaScript的编写位置是哪里？" class="headerlink" title="2、JavaScript的编写位置是哪里？"></a>2、JavaScript的编写位置是哪里？</h4><blockquote>
 <p>JavaScript除了在NodeJS中外，只能在html中编写</p>
 </blockquote>
+<hr>
 <h4 id="3、JavaScript有哪些输出语句"><a href="#3、JavaScript有哪些输出语句" class="headerlink" title="3、JavaScript有哪些输出语句"></a>3、JavaScript有哪些输出语句</h4><blockquote>
 <p>alert( );    弹窗弹出</p>
 <p>console.log();    控制台输出</p>
 </blockquote>
+<hr>
 <h4 id="4、什么是变量？如何定义变量？变量都有哪些命名规则？"><a href="#4、什么是变量？如何定义变量？变量都有哪些命名规则？" class="headerlink" title="4、什么是变量？如何定义变量？变量都有哪些命名规则？"></a>4、什么是变量？如何定义变量？变量都有哪些命名规则？</h4><blockquote>
 <p><strong>什么是变量？</strong></p>
 <p>在程序的执行过程中，其值可以在一定范围内发生改变的量，也是存储数据信息的容器。</p>
@@ -213,9 +216,27 @@
 <p>1、必须以字母、下划线、或者美元符$开头；</p>
 <p>2、除开头外后面的部分可以；</p>
 <p>3、虽然变量名不限制长度，但能表达清楚命名的含义即可；</p>
-<p> 4、变量名不可以和java的关键字冲突；</p>
+<p>4、变量名不可以和java的关键字冲突；</p>
 <p>5、中文拼音也可以命名，但工作中千万别这么干。</p>
 </blockquote>
+<hr>
+<h4 id="5、什么是变量声明的提升？"><a href="#5、什么是变量声明的提升？" class="headerlink" title="5、什么是变量声明的提升？"></a>5、什么是变量声明的提升？</h4><p>详细戳<a target="_blank" rel="noopener" href="https://www.php.cn/js-tutorial-481055.html">我</a></p>
+<p><del>简洁版如下</del></p>
+<pre><code class="javascript">// 你写的
+console.log(a);
+var a = 12;
+console.log(a);
+// 执行的
+var a;
+console.log(a);
+a = 12;
+console.log(a);
+// 关键词：预解析，预编译，只提升定义，不提升值。
+</code></pre>
+<h4 id="6、基本类型和引用类型的区别"><a href="#6、基本类型和引用类型的区别" class="headerlink" title="6、基本类型和引用类型的区别"></a>6、基本类型和引用类型的区别</h4><p><strong>基本类型</strong></p>
+<p>1、基本类型有：<code>undefined / null / number / string / boolean / bigint / symbol</code><br>2、基本类型数据放在<code>栈内存</code>中<br>3、基本类型数据是不可变的</p>
+<p><strong>引用类型</strong></p>
+<p>1、引用类型有：<code>Object / Array / Function</code> 等，本质上都是属于 Object<br>2、引用类型以：<code>地址: 数据</code> 的映射关系来进行存储，其中地址放在<code>栈内存</code>，数据放在<code>堆内存</code>，若两个或 N 个变量指向同一个地址，则共用一份数据。<br>3、引用类型数据是可变的</p>
 
     </div>
 

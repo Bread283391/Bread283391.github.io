@@ -185,7 +185,194 @@
     </div>
 
     <div class="content" v-pre>
-        
+        <h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><h4 id="常用的方法"><a href="#常用的方法" class="headerlink" title="常用的方法"></a>常用的方法</h4><h5 id="splice"><a href="#splice" class="headerlink" title="splice()"></a><code>splice()</code></h5><pre><code class="javascript">// 用于删除数组中的值定向并加入新的项
+var arr = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;,&#39;f&#39;];
+arr.splice(3,2,&#39;z&#39;,&#39;x&#39;,&#39;c&#39;);
+console.log(arr);
+&gt; [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;z&#39;,&#39;x&#39;,&#39;c&#39;,&#39;f&#39;]
+
+// 当后面没有要插入的项时为删除,不加入新的项
+var arr = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;,&#39;f&#39;];
+arr.splice(3,2);
+console.log(arr);
+&gt; [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;f&#39;]
+
+// 返回值
+var arr = [&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;,&#39;f&#39;];
+var item = arr.splice(3,1,&#39;z&#39;,&#39;x&#39;,&#39;c&#39;);    // 从下标3的项开始，连续替换2项
+console.log(arr);
+console.log(item);
+&gt; [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;z&quot;, &quot;x&quot;, &quot;c&quot;, &quot;e&quot;, &quot;f&quot; ]
+&gt; [ &quot;d&quot; ]
+</code></pre>
+<h5 id="slice"><a href="#slice" class="headerlink" title="slice()"></a><code>slice()</code></h5><pre><code class="javascript">// slice() 方法用于得到子数组,类似于字符串的clice()方法
+// slice(a,b) 截取的子数组为从下标 a 的项开始到下标 b 的项（不包括b）结束   [a,b)
+// !!!不会更改原数组!!!
+// 若无第二个参数，则截取指定项和后续的所有项为子数组
+// slice()方法的参数允许为负数，表示数组的倒数第几项（最后一项为-1项，而不是0项）
+</code></pre>
+<h5 id="toString-、join-和split"><a href="#toString-、join-和split" class="headerlink" title="toString()、join()和split()"></a><code>toString()、join()和split()</code></h5><pre><code class="javascript">// toString() 数组 -&gt; 字符串
+[22,33,44,55].toString()
+&gt; &quot;22,33,44,55&quot;
+
+// join()     数组 -&gt; 字符串
+[22,33,44,55].join()
+&gt; &quot;22,33,44,55&quot;
+[22,33,44,55].join(&#39;-&#39;)
+&gt; &quot;22-33-44-55&quot;
+[22,33,44,55].join(&#39;&#39;)
+&gt; &quot;22334455&quot;
+
+// split()    字符串 -&gt; 数组
+&quot;abcdefg&quot;.split()
+&gt; [&quot;abcdefg&quot;]
+&quot;abcdefg&quot;.split(&#39;&#39;)
+&gt; [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot; ]
+&quot;a-b-c-d-e-f-g&quot;.split(&#39;-&#39;)
+&gt; [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot; ]
+&quot;abcdefg&quot;.split(&#39;&#39;)[2]
+&gt; c
+</code></pre>
+<h5 id="charAt"><a href="#charAt" class="headerlink" title="charAt()"></a><code>charAt()</code></h5><p>==不常用==</p>
+<pre><code class="javascript">// charAt()
+&quot;abcdef&quot;[0]
+&gt; a
+&quot;abcdef&quot;.charAt(0)
+&gt; a
+</code></pre>
+<h5 id="concat"><a href="#concat" class="headerlink" title="concat()"></a><code>concat()</code></h5><pre><code class="javascript">// 用于合并连结多个数组
+// 不会改变原数组，会返回一个新数组
+var arr1 = [1,2,3];
+var arr2 = [4,5,6];
+var arr3 = [7,8,9];
+var arr = arr1.concat(arr2,arr3);
+console.log(arr);
+&gt; [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+var arr1 = [1,2,3];
+var arr2 = [4,5,6];
+var arr3 = [7,8,9];
+var arr = arr1.concat(arr3,arr2);
+console.log(arr);
+&gt; [ 1, 2, 3, 7, 8, 9, 4, 5, 6 ]
+</code></pre>
+<h5 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a><code>reverse()</code></h5><pre><code class="javascript">// reverse()方法用来将一个数组中的全部项顺序置反
+// 改变原数组
+var arr = [1,2,3,4,5];
+arr.reverse();
+console.log(arr);
+&gt; [ 5, 4, 3, 2, 1 ]
+&quot;12345&quot;.split(&#39;&#39;).reverse().join(&#39;&#39;)
+&gt; &quot;54321&quot;
+</code></pre>
+<h5 id="indexOf"><a href="#indexOf" class="headerlink" title="indexOf()"></a><code>indexOf()</code></h5><pre><code class="javascript">// 用于搜索数组中的元素（包含类型，“===”判断），并返回该元素的下标，若元素不存在，则返回-1
+[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;].indexOf(&#39;b&#39;)
+&gt; 1
+[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;].indexOf(&#39;f&#39;) 
+&gt; -1
+// 若有多个该元素，则只返回第一个该元素的位置
+[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;,&#39;b&#39;].indexOf(&#39;b&#39;) 
+&gt; 1
+
+[11,22,33,44].indexOf(11)
+&gt; 0
+[11,22,33,44].indexOf(&#39;11&#39;)
+&gt; -1
+</code></pre>
+<h5 id="includes"><a href="#includes" class="headerlink" title="includes()"></a><code>includes()</code></h5><pre><code class="javascript">// 判断一个数组是否包含一个指定的值（包含类型，“===”判断），返回 boolean 值
+[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;].includes(&#39;b&#39;)
+&gt; true
+[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;,&#39;d&#39;,&#39;e&#39;].includes(&#39;f&#39;)
+&gt; false
+[11,22,33,44].includes(11) 
+&gt; true
+[11,22,33,44].includes(&#39;11&#39;) 
+&gt; false
+</code></pre>
+<h5 id="push-、pop-、unshift-、shift"><a href="#push-、pop-、unshift-、shift" class="headerlink" title="push()、pop()、unshift()、shift()"></a><code>push()</code>、<code>pop()</code>、<code>unshift()</code>、<code>shift()</code></h5><pre><code class="javascript">// push()    在尾部插入新项
+// 若要推入多项，可用逗号隔开
+// 调用后数组会立即改变
+arr=[11,22,33,44]
+arr.push(55)
+console.log(arr);
+&gt; [ 11, 22, 33, 44, 55 ]
+
+// pop()     在尾部删除
+// 调用后数组会立即改变并返回被删除的项
+arr=[11,22,33,44]
+var a = arr.pop()
+console.log(a);
+&gt; 44
+
+// unshift() 在头部插入新项
+// 若要推入多项，可用逗号隔开
+// 调用后数组会立即改变
+arr=[11,22,33,44]
+arr.unshift(0)
+console.log(arr);
+&gt; [ 0, 11, 22, 33, 44 ]
+
+// shift()   在头部删除
+arr=[11,22,33,44]
+var a = arr.shift()
+console.log(a);
+&gt; 11
+</code></pre>
+<p><code>random()</code></p>
+<pre><code class="javascript">// 获取随机数
+var n = parseInt(Math.random() * 10);   // [0,9]
+console.log(n);
+var n = parseInt(Math.random() * 10) + 6;   // [6,15]
+console.log(n);
+</code></pre>
+<hr>
+<h4 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h4><h5 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h5><p>a = b 时是将<code>b</code>的值克隆给了<code>a</code></p>
+<pre><code class="javascript">number boolean string undefined null
+</code></pre>
+<h5 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h5><p>arr2 = arr1 时是<code>arr2</code>指向了<code>arr1</code>指向的地址</p>
+<pre><code class="javascript">array object function regexp ...
+</code></pre>
+<h5 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h5><pre><code class="javascript">// 基本类型
+var a = 3;
+var b = a;
+a++;
+console.log(a);
+console.log(b);
+&gt; 4
+&gt; 3
+
+// 引用类型
+var arr1 = [1,2,3,4]
+var arr2 = arr1;
+arr1.push(5);
+console.log(arr1);
+console.log(arr2);
+&gt; [ 1, 2, 3, 4, 5 ]
+&gt; [ 1, 2, 3, 4, 5 ]
+</code></pre>
+<h5 id="相等判断"><a href="#相等判断" class="headerlink" title="相等判断"></a>相等判断</h5><h6 id="基本类型比较-值"><a href="#基本类型比较-值" class="headerlink" title="基本类型比较==值=="></a>基本类型比较==值==</h6><pre><code class="javascript">var a = 3;
+var b = 3;
+a == b;
+&gt; true
+3 == 3;
+&gt; true
+</code></pre>
+<h6 id="引用类型比较-址"><a href="#引用类型比较-址" class="headerlink" title="引用类型比较==址=="></a>引用类型比较==址==</h6><pre><code class="javascript">var arr1 = [1,2,3];
+var arr2 = arr1;
+arr1 == arr2;
+&gt; true
+[1,2,3] == [1,2,3];
+&gt; false
+</code></pre>
+<hr>
+<h4 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h4><h5 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a>函数的定义</h5><pre><code class="javascript">function fun()&#123;
+    // d函数
+&#125;
+
+var fun = function ()&#123;
+    // 函数表达式
+&#125;
+</code></pre>
+
     </div>
 
     
