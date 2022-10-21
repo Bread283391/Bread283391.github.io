@@ -447,7 +447,7 @@ console.log(arr2 == arr1)
 <hr>
 <h4 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h4><h5 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h5><p>​    DOM是JS操控HTML和CSS的桥梁。</p>
 <p>​    文档对象模型 (Document Object Model) 是 HTML 和 XML 文档的编程接口。它提供了对文档的结构化的表述，并定义了一种方式可以使从程序中对该结构进行访问，从而改变文档的结构，样式和内容。DOM 将文档解析为一个由节点和对象（包含属性和方法的对象）组成的结构集合。简言之，它会将 web 页面和脚本或程序语言连接起来。</p>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C1.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/1.png"></p>
 <h5 id="改变节点内容"><a href="#改变节点内容" class="headerlink" title="改变节点内容"></a>改变节点内容</h5><h6 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a><code>innerHTML</code></h6><pre><code class="html">&lt;!-- 能以HTML语法设置节点中的内容 --&gt;
 &lt;!-- 以 o前缀 命名可以表示得到一个节点、对象 --&gt;
 &lt;body&gt;
@@ -459,7 +459,7 @@ console.log(arr2 == arr1)
 &lt;/body&gt;
 </code></pre>
 <p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/2.png"></p>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C3.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/3.png"></p>
 <pre><code class="html">&lt;body&gt;
     &lt;div id = &quot;box&quot;&gt;&lt;/div&gt;
     &lt;script&gt;
@@ -468,8 +468,8 @@ console.log(arr2 == arr1)
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C4.png"></p>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C5.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/4.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/5.png"></p>
 <h6 id="innerText"><a href="#innerText" class="headerlink" title="innerText"></a><code>innerText</code></h6><pre><code class="html">&lt;!-- 只能以纯文本的形式设置节点中的内容 --&gt;
 &lt;body&gt;
     &lt;div id = &quot;box&quot;&gt;&lt;/div&gt;
@@ -480,7 +480,7 @@ console.log(arr2 == arr1)
 &lt;/body&gt;
 </code></pre>
 <p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/2.png"></p>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C3.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/3.png"></p>
 <pre><code class="html">&lt;body&gt;
     &lt;div id = &quot;box&quot;&gt;&lt;/div&gt;
     &lt;script&gt;
@@ -489,8 +489,8 @@ console.log(arr2 == arr1)
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C6.png"></p>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C7.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/6.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/7.png"></p>
 <h5 id="节点的创建"><a href="#节点的创建" class="headerlink" title="节点的创建"></a>节点的创建</h5><pre><code class="javascript">// 用于创建一个指定 tag name 的 HTML 元素
 document.creatElement();
 // 新创建出的节点是“孤儿节点”，他并没有被挂载到 DOM 树上，无法看到它
@@ -518,7 +518,7 @@ document.creatElement();
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C8.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/8.png"></p>
 <h6 id="insertBefore"><a href="#insertBefore" class="headerlink" title="insertBefore()"></a><code>insertBefore()</code></h6><pre><code class="html">&lt;body&gt;
     &lt;div id = &quot;box&quot;&gt;
         &lt;p&gt;段落1&lt;/p&gt;
@@ -538,7 +538,7 @@ document.creatElement();
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C9.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/9.png"></p>
 <h6 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h6><p>1、动态创建出一个20行12列的表格</p>
 <pre><code class="html">&lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -570,7 +570,7 @@ document.creatElement();
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C10.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/10.png"></p>
 <p>2、制作九九乘法表</p>
 <pre><code class="html">&lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -599,7 +599,7 @@ document.creatElement();
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C11.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/11.png"></p>
 <h5 id="节点的移动"><a href="#节点的移动" class="headerlink" title="节点的移动"></a>节点的移动</h5><pre><code class="javascript">// 如果将已经挂载到 DOM 树上的节点成为appendCHild()或者insertBefore()的参数，这个节点将会被移动
 新父节点.appendChild(已经有父亲的节点);
 新父节点.insertBefore(已经有父亲的节点,标杆子节点)；
@@ -618,7 +618,7 @@ document.creatElement();
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C12.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/12.png"></p>
 <h6 id="insertBefore-1"><a href="#insertBefore-1" class="headerlink" title="insertBefore()"></a><code>insertBefore()</code></h6><pre><code class="html">&lt;body&gt;
     &lt;div id=&quot;box1&quot;&gt;
         &lt;p id=&quot;para&quot;&gt;我是段落&lt;/p&gt;
@@ -638,7 +638,7 @@ document.creatElement();
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C13.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/13.png"></p>
 <h5 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h5><pre><code class="javascript">// 从DOM中删除一个子节点
 父节点.removeChild(要删除子节点)；
 // 节点不能主动删除自己，必须右父节点删除它
@@ -657,7 +657,7 @@ document.creatElement();
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C14.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/14.png"></p>
 <h5 id="克隆节点"><a href="#克隆节点" class="headerlink" title="克隆节点"></a>克隆节点</h5><pre><code class="javascript">// 克隆出来的节点是“孤儿节点”
 var 孤儿节点 = 老节点.cloneNode();
 // 参数是布尔值，表示是否采用深度克隆：
@@ -684,7 +684,7 @@ var 孤儿节点 = 老节点.cloneNode(true);
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C15.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/15.png"></p>
 <pre><code class="html">&lt;body&gt;
     &lt;div id=&quot;box1&quot;&gt;
         &lt;ul&gt;
@@ -705,7 +705,7 @@ var 孤儿节点 = 老节点.cloneNode(true);
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C16.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/16.png"></p>
 <h5 id="改变元素节点的CSS样式"><a href="#改变元素节点的CSS样式" class="headerlink" title="改变元素节点的CSS样式"></a>改变元素节点的CSS样式</h5><pre><code class="javascript">var box1 = document.getElementById(&#39;box1&#39;);
 box1.style.backgroundColor = &#39;red&#39;;
 box1.style.backgroundImage = &#39;url(images/1.jpg)&#39;;
@@ -733,7 +733,7 @@ box1.style.fontSize = &#39;32px&#39;;
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C17.png" alt="17"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/17.png" alt="17"></p>
 <h5 id="改变元素节点的HTML属性"><a href="#改变元素节点的HTML属性" class="headerlink" title="改变元素节点的HTML属性"></a>改变元素节点的HTML属性</h5><h6 id="1、标准W3C属性"><a href="#1、标准W3C属性" class="headerlink" title="1、标准W3C属性"></a>1、标准W3C属性</h6><pre><code class="javascript">// 标准W3C属性，如src、href等等，只需要直接打点进行更改即可，如：
 oImg.src = &#39;images/2.jpg&#39;;
 </code></pre>
@@ -745,7 +745,7 @@ oImg.src = &#39;images/2.jpg&#39;;
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C18.png" alt="18"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/18.png" alt="18"></p>
 <pre><code class="html">&lt;body&gt;
     &lt;img src=&quot;../images/1.jpg&quot; id=&quot;pic&quot;&gt;
     &lt;script&gt;
@@ -754,7 +754,7 @@ oImg.src = &#39;images/2.jpg&#39;;
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C19.png" alt="19"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/19.png" alt="19"></p>
 <h6 id="2、非标准W3C属性"><a href="#2、非标准W3C属性" class="headerlink" title="2、非标准W3C属性"></a>2、非标准W3C属性</h6><pre><code class="javascript">// 不符合W3C标准的属性，要使用setAttribute()和getAttribute()来设置、读取
 oBox.setAttribute(&#39;data-n&#39;, 10);
 var n = oBox.getAttribute(&#39;data-n&#39;);
@@ -770,7 +770,7 @@ alert(n);
     &lt;/script&gt;
 &lt;/body&gt;
 </code></pre>
-<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C20.png" alt="20"><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C21.png" alt="21"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/20.png" alt="20"><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/21.png" alt="21"></p>
 
     </div>
 
