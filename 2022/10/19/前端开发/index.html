@@ -539,6 +539,238 @@ document.creatElement();
 &lt;/body&gt;
 </code></pre>
 <p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C9.png"></p>
+<h6 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h6><p>1、动态创建出一个20行12列的表格</p>
+<pre><code class="html">&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        td&#123;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table id=&quot;myTable&quot;&gt;&lt;/table&gt;
+    &lt;script&gt;
+        var myTable = document.getElementById(&#39;myTable&#39;);
+        // 创建20行
+        for(var i = 0; i &lt; 20; i++)&#123;
+            var tr = document.createElement(&#39;tr&#39;);
+            // 创建12列
+            for(var j = 0; j &lt; 12; j++)&#123;
+                var td = document.createElement(&#39;td&#39;);
+                // 让 tr 追加 td 标签
+                tr.appendChild(td);
+            &#125;
+            // 让 myTable 追加 tr 标签
+            myTable.appendChild(tr);
+        &#125;
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C10.png"></p>
+<p>2、制作九九乘法表</p>
+<pre><code class="html">&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        td&#123;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;table id=&quot;myTable&quot;&gt;&lt;/table&gt;
+    &lt;script&gt;
+        var myTable = document.getElementById(&#39;myTable&#39;);
+        for(var i = 0; i &lt; 9; i++)&#123;
+            var tr = document.createElement(&#39;tr&#39;);
+            for(var j = 0; j &lt; i+1; j++)&#123;
+                var td = document.createElement(&#39;td&#39;);
+                td.innerText = (j+1) + &#39;*&#39; + (i+1) + &#39;=&#39; + (i+1)*(j+1);
+                tr.appendChild(td);
+            &#125;
+            myTable.appendChild(tr);
+        &#125;
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C11.png"></p>
+<h5 id="节点的移动"><a href="#节点的移动" class="headerlink" title="节点的移动"></a>节点的移动</h5><pre><code class="javascript">// 如果将已经挂载到 DOM 树上的节点成为appendCHild()或者insertBefore()的参数，这个节点将会被移动
+新父节点.appendChild(已经有父亲的节点);
+新父节点.insertBefore(已经有父亲的节点,标杆子节点)；
+// 意味着一个节点不能同时位于 DOM 树的两个位置
+</code></pre>
+<h6 id="appendChild-1"><a href="#appendChild-1" class="headerlink" title="appendChild"></a><code>appendChild</code></h6><pre><code class="html">&lt;body&gt;
+    &lt;div id=&quot;box1&quot;&gt;
+        &lt;p id=&quot;para&quot;&gt;我是段落&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;box2&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var box1 = document.getElementById(&#39;box1&#39;);
+        var box2 = document.getElementById(&#39;box2&#39;);
+        var para = document.getElementById(&#39;para&#39;);
+        box2.appendChild(para);
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C12.png"></p>
+<h6 id="insertBefore-1"><a href="#insertBefore-1" class="headerlink" title="insertBefore()"></a><code>insertBefore()</code></h6><pre><code class="html">&lt;body&gt;
+    &lt;div id=&quot;box1&quot;&gt;
+        &lt;p id=&quot;para&quot;&gt;我是段落&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;box2&quot;&gt;
+        &lt;p&gt;我是原有p标签1&lt;/p&gt;
+        &lt;p&gt;我是原有p标签2&lt;/p&gt;
+        &lt;p&gt;我是原有p标签3&lt;/p&gt;
+        &lt;p&gt;我是原有p标签4&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var box1 = document.getElementById(&#39;box1&#39;);
+        var box2 = document.getElementById(&#39;box2&#39;);
+        var para = document.getElementById(&#39;para&#39;);
+        var box2p = box2.getElementsByTagName(&#39;p&#39;);
+        box2.insertBefore(para,box2p[2]);
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C13.png"></p>
+<h5 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h5><pre><code class="javascript">// 从DOM中删除一个子节点
+父节点.removeChild(要删除子节点)；
+// 节点不能主动删除自己，必须右父节点删除它
+</code></pre>
+<pre><code class="html">&lt;body&gt;
+    &lt;div id=&quot;box1&quot;&gt;
+        &lt;p&gt;我是原有p标签1&lt;/p&gt;
+        &lt;p&gt;我是原有p标签2&lt;/p&gt;
+        &lt;p&gt;我是原有p标签3&lt;/p&gt;
+        &lt;p&gt;我是原有p标签4&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var box1 = document.getElementById(&#39;box1&#39;);
+        var box1_p3 = box1.getElementsByTagName(&#39;p&#39;)[2];
+        box1.removeChild(box1_p3);
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C14.png"></p>
+<h5 id="克隆节点"><a href="#克隆节点" class="headerlink" title="克隆节点"></a>克隆节点</h5><pre><code class="javascript">// 克隆出来的节点是“孤儿节点”
+var 孤儿节点 = 老节点.cloneNode();
+// 参数是布尔值，表示是否采用深度克隆：
+// 若为true，则该节点所有后代节点也都会被克隆；若为false，则只克隆该节点本身
+var 孤儿节点 = 老节点.cloneNode(true);
+</code></pre>
+<pre><code class="html">&lt;body&gt;
+    &lt;div id=&quot;box1&quot;&gt;
+        &lt;ul&gt;
+            &lt;li&gt;列表1&lt;/li&gt;
+            &lt;li&gt;列表2&lt;/li&gt;
+            &lt;li&gt;列表3&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;box2&quot;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+        var box1 = document.getElementById(&#39;box1&#39;);
+        var box2 = document.getElementById(&#39;box2&#39;);
+        var ul = box1.getElementsByTagName(&#39;ul&#39;)[0];
+        // 克隆节点
+        var new_ul = ul.cloneNode(true);
+        box2.appendChild(new_ul);
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C15.png"></p>
+<pre><code class="html">&lt;body&gt;
+    &lt;div id=&quot;box1&quot;&gt;
+        &lt;ul&gt;
+            &lt;li&gt;列表1&lt;/li&gt;
+            &lt;li&gt;列表2&lt;/li&gt;
+            &lt;li&gt;列表3&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;box2&quot;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+        var box1 = document.getElementById(&#39;box1&#39;);
+        var box2 = document.getElementById(&#39;box2&#39;);
+        var ul = box1.getElementsByTagName(&#39;ul&#39;)[0];
+        // 克隆节点
+        var new_ul = ul.cloneNode();
+        box2.appendChild(new_ul);
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C16.png"></p>
+<h5 id="改变元素节点的CSS样式"><a href="#改变元素节点的CSS样式" class="headerlink" title="改变元素节点的CSS样式"></a>改变元素节点的CSS样式</h5><pre><code class="javascript">var box1 = document.getElementById(&#39;box1&#39;);
+box1.style.backgroundColor = &#39;red&#39;;
+box1.style.backgroundImage = &#39;url(images/1.jpg)&#39;;
+// box1.style.backgroundImage = &#39;url(https://images/1.jpg) 100% 100% no-repeat&#39;;
+box1.style.fontSize = &#39;32px&#39;;
+</code></pre>
+<pre><code class="html">&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        .box1&#123;
+            width: 50px;
+            height: 50px;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;box1&quot; id=&quot;box1&quot;&gt;&lt;/div&gt;
+
+    &lt;script&gt;
+        var box1 = document.getElementById(&#39;box1&#39;);
+        box1.style.backgroundColor = &#39;red&#39;;
+        // box1.style.backgroundColor = &#39;rgb(100,100,100)&#39;;
+        // box1.style.backgroundColor = &#39;#000&#39;;
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C17.png" alt="17"></p>
+<h5 id="改变元素节点的HTML属性"><a href="#改变元素节点的HTML属性" class="headerlink" title="改变元素节点的HTML属性"></a>改变元素节点的HTML属性</h5><h6 id="1、标准W3C属性"><a href="#1、标准W3C属性" class="headerlink" title="1、标准W3C属性"></a>1、标准W3C属性</h6><pre><code class="javascript">// 标准W3C属性，如src、href等等，只需要直接打点进行更改即可，如：
+oImg.src = &#39;images/2.jpg&#39;;
+</code></pre>
+<pre><code class="html">&lt;body&gt;
+    &lt;img src=&quot;../images/1.jpg&quot; id=&quot;pic&quot;&gt;
+    &lt;script&gt;
+        // var pic = document.getElementById(&#39;pic&#39;);
+        // pic.src = &#39;../images/2.jpg&#39;
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C18.png" alt="18"></p>
+<pre><code class="html">&lt;body&gt;
+    &lt;img src=&quot;../images/1.jpg&quot; id=&quot;pic&quot;&gt;
+    &lt;script&gt;
+        var pic = document.getElementById(&#39;pic&#39;);
+        pic.src = &#39;../images/2.jpg&#39;
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C19.png" alt="19"></p>
+<h6 id="2、非标准W3C属性"><a href="#2、非标准W3C属性" class="headerlink" title="2、非标准W3C属性"></a>2、非标准W3C属性</h6><pre><code class="javascript">// 不符合W3C标准的属性，要使用setAttribute()和getAttribute()来设置、读取
+oBox.setAttribute(&#39;data-n&#39;, 10);
+var n = oBox.getAttribute(&#39;data-n&#39;);
+alert(n);
+</code></pre>
+<pre><code class="html">&lt;body&gt;
+    &lt;div id=&quot;box&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var oBox = document.getElementById(&#39;box&#39;);
+        oBox.setAttribute(&quot;data-n&quot;, 10);
+        var n = oBox.getAttribute(&quot;data-n&quot;);
+        alert(n);
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C20.png" alt="20"><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C21.png" alt="21"></p>
 
     </div>
 
