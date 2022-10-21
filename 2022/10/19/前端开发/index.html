@@ -327,6 +327,26 @@ console.log(n);
 var n = parseInt(Math.random() * 10) + 6;   // [6,15]
 console.log(n);
 </code></pre>
+<h5 id="sort"><a href="#sort" class="headerlink" title="sort()"></a><code>sort()</code></h5><p> 需要借助函数实现</p>
+<pre><code class="javascript">// sort()当 a &gt; b 时，需要交换则返回正数，不需要交换返回负数， a &lt; b 时亦然
+// a &gt; b ，a - b &gt; 0，所以 a 与 b 发生交换，结果为 ba ，为从小到大升序排序
+// 直接改变数组指向的地址
+//升序
+var arr = [3,5,9,4,1];
+arr.sort(function (a,b)&#123;
+    return a - b
+&#125;);
+console.log(arr);
+&gt; [ 1, 3, 4, 5, 9 ]
+
+// 降序
+var arr = [3,5,9,4,1];
+arr.sort(function (a,b)&#123;
+    return b-a;
+&#125;);
+console.log(arr);
+[ 9, 5, 4, 3, 1 ]
+</code></pre>
 <hr>
 <h4 id="基本类型和引用类型"><a href="#基本类型和引用类型" class="headerlink" title="基本类型和引用类型"></a>基本类型和引用类型</h4><h5 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h5><p>a = b 时是将<code>b</code>的值克隆给了<code>a</code></p>
 <pre><code class="javascript">number boolean string undefined null
@@ -375,6 +395,150 @@ var fun = function ()&#123;
     // 函数表达式
 &#125;
 </code></pre>
+<h5 id="argument"><a href="#argument" class="headerlink" title="argument"></a>argument</h5><p>释义：接收了所有形参构成一个数组。</p>
+<pre><code class="javascript">function fun()&#123;
+    console.log(arguments[0]);
+    console.log(arguments[2]);
+&#125;
+fun(1,2,3,4,5);
+&gt; 1
+&gt; 3
+</code></pre>
+<hr>
+<h4 id="克隆"><a href="#克隆" class="headerlink" title="克隆"></a>克隆</h4><h5 id="浅克隆"><a href="#浅克隆" class="headerlink" title="浅克隆"></a>浅克隆</h5><pre><code class="javascript">// 克隆的结果不再是指向同一个地址了，而是两个地址
+var arr1 = [1,2,3,4,5];
+var arr2 = [];
+for (var i = 0; i &lt; arr1.length; i++)&#123;
+    arr2[i] = arr1 [i];
+&#125;
+console.log(arr2);
+console.log(arr1 == arr2);
+&gt; [ 1, 2, 3, 4, 5 ]
+&gt; false
+</code></pre>
+<h5 id="深克隆"><a href="#深克隆" class="headerlink" title="深克隆"></a>深克隆</h5><pre><code class="javascript">var arr1 = [1,2,3,4,[5,6]];
+// 使用函数的递归
+function deepClone(arr)&#123;
+    // 创建储存结果的数组
+    var result = [];
+    for(var i = 0; i &lt; arr.length; i++)&#123;
+        if(Array.isArray(arr[i]))&#123;
+            // 若该项为数组，则再次调用该函数
+            result.push(deepClone(arr[i]));
+        &#125;else&#123;
+            // 若为数值，则将值推入结果数组中
+            result.push(arr[i]);
+        &#125;
+    &#125;
+    // 返回结果数组
+    return result;
+&#125;
+var arr2 = deepClone(arr1);
+console.log(arr2);
+&gt; Array(5) [ 1, 2, 3, 4, (2) […] ]
+&gt; 0: 1
+&gt; 1: 2
+&gt; 2: 3
+&gt; 3: 4
+&gt; 4: Array [ 5, 6 ]
+console.log(arr2 == arr1)
+&gt; false
+</code></pre>
+<hr>
+<h4 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h4><h5 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h5><p>​    DOM是JS操控HTML和CSS的桥梁。</p>
+<p>​    文档对象模型 (Document Object Model) 是 HTML 和 XML 文档的编程接口。它提供了对文档的结构化的表述，并定义了一种方式可以使从程序中对该结构进行访问，从而改变文档的结构，样式和内容。DOM 将文档解析为一个由节点和对象（包含属性和方法的对象）组成的结构集合。简言之，它会将 web 页面和脚本或程序语言连接起来。</p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C1.png"></p>
+<h5 id="改变节点内容"><a href="#改变节点内容" class="headerlink" title="改变节点内容"></a>改变节点内容</h5><h6 id="innerHTML"><a href="#innerHTML" class="headerlink" title="innerHTML"></a><code>innerHTML</code></h6><pre><code class="html">&lt;!-- 能以HTML语法设置节点中的内容 --&gt;
+&lt;!-- 以 o前缀 命名可以表示得到一个节点、对象 --&gt;
+&lt;body&gt;
+    &lt;div id = &quot;box&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var oBox = document.getElementById(&#39;box&#39;)
+        oBox.innerHTML = &#39;Hello-world&#39;;
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/2.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C3.png"></p>
+<pre><code class="html">&lt;body&gt;
+    &lt;div id = &quot;box&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var oBox = document.getElementById(&#39;box&#39;)
+        oBox.innerHTML = &#39;&lt;ul&gt;&lt;li&gt;Git&lt;/li&gt;&lt;li&gt;Hexo&lt;/li&gt;&lt;/ul&gt;&#39;;
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C4.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C5.png"></p>
+<h6 id="innerText"><a href="#innerText" class="headerlink" title="innerText"></a><code>innerText</code></h6><pre><code class="html">&lt;!-- 只能以纯文本的形式设置节点中的内容 --&gt;
+&lt;body&gt;
+    &lt;div id = &quot;box&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var oBox = document.getElementById(&#39;box&#39;)
+        oBox.innerText = &#39;Hello-world&#39;;
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/2.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C3.png"></p>
+<pre><code class="html">&lt;body&gt;
+    &lt;div id = &quot;box&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var oBox = document.getElementById(&#39;box&#39;)
+        oBox.innerText = &#39;&lt;ul&gt;&lt;li&gt;Git&lt;/li&gt;&lt;li&gt;Hexo&lt;/li&gt;&lt;/ul&gt;&#39;;
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C6.png"></p>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C7.png"></p>
+<h5 id="节点的创建"><a href="#节点的创建" class="headerlink" title="节点的创建"></a>节点的创建</h5><pre><code class="javascript">// 用于创建一个指定 tag name 的 HTML 元素
+document.creatElement();
+// 新创建出的节点是“孤儿节点”，他并没有被挂载到 DOM 树上，无法看到它
+
+// 需使用 appendChild() 或 insertBefore() 方法将孤儿节点插入到 DOM 树上
+// 可以将孤儿节点挂载到它的内部，成为他的最后一个子节点
+父节点.appendChild(孤儿节点);
+// 可以将孤儿节点挂载到它的内部，成为它的“标杆子节点”之前的节点
+父节点.insertBefore(孤儿节点, 标杆节点);
+</code></pre>
+<h6 id="appendChild"><a href="#appendChild" class="headerlink" title="appendChild()"></a><code>appendChild()</code></h6><pre><code class="html">&lt;body&gt;
+    &lt;div id = &quot;box&quot;&gt;
+        &lt;p&gt;段落1&lt;/p&gt;
+        &lt;p&gt;段落2&lt;/p&gt;
+        &lt;p&gt;段落3&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var oBox = document.getElementById(&#39;box&#39;);
+        // 创建孤儿子节点
+        var oP = document.createElement(&#39;p&#39;);
+        // 设置内部文字
+        oP.innerText = &#39;新来的&#39;;
+        // 上树
+        oBox.appendChild(oP);
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C8.png"></p>
+<h6 id="insertBefore"><a href="#insertBefore" class="headerlink" title="insertBefore()"></a><code>insertBefore()</code></h6><pre><code class="html">&lt;body&gt;
+    &lt;div id = &quot;box&quot;&gt;
+        &lt;p&gt;段落1&lt;/p&gt;
+        &lt;p&gt;段落2&lt;/p&gt;
+        &lt;p&gt;段落3&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        var oBox = document.getElementById(&#39;box&#39;);
+        // 获取 oBox 下的所有 p 子节点
+        var oPa = oBox.getElementsByTagName(&#39;p&#39;);
+        // 创建孤儿子节点
+        var oP = document.createElement(&#39;p&#39;);
+        // 设置内部文字
+        oP.innerText = &#39;新来的&#39;;
+        // 将 oP 插入到 oBox 中，插至 oPa[0] 之前的位置
+        oBox.insertBefore(oP, oPa[0]);
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%5C9.png"></p>
 
     </div>
 
@@ -384,7 +548,7 @@ var fun = function ()&#123;
 <footer id="footer">
     <div class="footer-wrap">
         <div>
-            © 2018 - 2022 Bread
+            © 2022 - 2022 Bread
             <span class="footer-icon">
                 <a-icon type="flag" theme="filled" /></span>
             @一个软面包
