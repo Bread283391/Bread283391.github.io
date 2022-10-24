@@ -1242,6 +1242,235 @@ oBox.addEventListenner(&#39;click&#39;,function()&#123;
 &lt;/script&gt;
 &lt;!-- 若同时写上，则按顺序弹出 b A B --&gt;
 </code></pre>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><pre><code class="javascript">// 事件对象
+// 事件处理函数提供一个形式参数，他是个对象，封装了本次事件的细节
+// 通常用 event 或 e 来表示
+ oBox.onmousemove = function(e)&#123;
+     // 对象e就是本次事件的“事件对象”
+ &#125;
+</code></pre>
+<h4 id="mouse"><a href="#mouse" class="headerlink" title="mouse"></a>mouse</h4><pre><code class="javascript">// 鼠标指针相对于浏览器的坐标
+clientX
+clientY
+// 鼠标指针相对于整张网页的坐标
+pageX
+pageY
+// 鼠标指针相对于事件源元素的坐标
+offsetX
+offsetY
+</code></pre>
+<h5 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h5><pre><code class="html">&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+    &lt;style&gt;
+        #box1&#123;
+            width: 200px;
+            height: 200px;
+            background-color: dodgerblue;
+            margin: 200px;
+        &#125;
+        body&#123;
+            height: 2000px;
+        &#125;
+        #info1&#123;
+            font-size: 30px;
+        &#125;
+        #info2&#123;
+            font-size: 30px;
+        &#125;
+        #info3&#123;
+            font-size: 30px;
+        &#125;
+        p&#123;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            margin: 50px 50px 50px 50px;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id=&quot;box1&quot;&gt;
+        &lt;p&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;info1&quot;&gt;1&lt;/div&gt;
+    &lt;div id=&quot;info2&quot;&gt;2&lt;/div&gt;
+    &lt;div id=&quot;info3&quot;&gt;3&lt;/div&gt;
+    &lt;script&gt;
+        var oBox1 = document.getElementById(&#39;box1&#39;);
+        var oInfo1 = document.getElementById(&#39;info1&#39;);
+        var oInfo2 = document.getElementById(&#39;info2&#39;);
+        var oInfo3 = document.getElementById(&#39;info3&#39;);
+        oBox1.onmousemove = function (e)&#123;
+            oInfo1.innerHTML = &#39;client(x,y): (&#39; + e.clientX + &#39;,&#39; + e.clientY + &#39;)&#39;;
+            oInfo2.innerHTML = &#39;page(x,y): (&#39; + e.pageX + &#39;,&#39; + e.pageY + &#39;)&#39;;
+            oInfo3.innerHTML = &#39;offset(x,y): (&#39; + e.offsetX + &#39;,&#39; + e.offsetY + &#39;)&#39;;
+        &#125;
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code class="javascript">// 当光标移动到蓝框左上角时，相对源元素坐标为（0，0）
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/41.png" alt="41"></p>
+<pre><code class="javascript">// 当光标移动到黑框左上角时，相对源元素坐标依然为（0，0）
+// 结论：相对源元素坐标是根据光标所处位置的最内部（html结构）元素计算的
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/40.png" alt="40"></p>
+<h4 id="keyboard"><a href="#keyboard" class="headerlink" title="keyboard"></a>keyboard</h4><p>==部分不再兼容，慎用==</p>
+<pre><code class="javascript">// e.charCode 属性通常用于 onkeypress 事件中，表示用户输入的字符的字符码
+// e.keyCode 属性通常用于 onkeydown 事件和 onkeyup 中，表示用户按下的按键的“键码”
+</code></pre>
+<h5 id="charCode字符码"><a href="#charCode字符码" class="headerlink" title="charCode字符码"></a>charCode字符码</h5><pre><code class="javascript">// ASCII 码值
+0-9 // 48-57
+A-Z // 65-90
+a-z // 97-122
+</code></pre>
+<h5 id="keyCode键码"><a href="#keyCode键码" class="headerlink" title="keyCode键码"></a>keyCode键码</h5><pre><code class="javascript">0-9        // 48-57
+a-z(不区分大小写)    // 65-90
+方向键⬅⬆➡⬇        // 37、38、39、40
+回车键            // 13
+空格键            // 32
+</code></pre>
+<h5 id="举例-1"><a href="#举例-1" class="headerlink" title="举例"></a>举例</h5><pre><code class="html">&lt;body&gt;
+    &lt;input type=&quot;text&quot; id=&quot;charField&quot;&gt;
+    &lt;div id=&quot;info1&quot;&gt;&lt;/div&gt;
+    &lt;input type=&quot;text&quot; id=&quot;keyField&quot;&gt;
+    &lt;div id=&quot;info2&quot;&gt;&lt;/div&gt;
+    &lt;script&gt;
+        var oCharField = document.getElementById(&#39;charField&#39;);
+        var oInfo1 = document.getElementById(&#39;info1&#39;);
+        var oKeyField = document.getElementById(&#39;keyField&#39;);
+        var oInfo2 = document.getElementById(&#39;info2&#39;);
+        oCharField.onkeypress = function (e)&#123;
+            oInfo1.innerText = &#39;字符码为: &#39; + e.charCode;
+        &#125;
+        oKeyField.onkeydown = function (e)&#123;
+            oInfo2.innerText = &#39;键码为：&#39; + e.keyCode;
+        &#125;
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p><img src="/2022/10/19/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/42.png" alt="42"></p>
+<h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="后台管理系统侧边栏"><a href="#后台管理系统侧边栏" class="headerlink" title="后台管理系统侧边栏"></a>后台管理系统侧边栏</h3><h4 id="html部分"><a href="#html部分" class="headerlink" title="html部分"></a>html部分</h4><pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;../css/style.css&quot;&gt;
+    &lt;title&gt;Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;wrapper&quot;&gt;
+        &lt;div class=&quot;sidebar&quot;&gt;
+            &lt;h2&gt;楠博科技&lt;/h2&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;fas&quot;&gt;首页&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;fas&quot;&gt;设备管理&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;fas&quot;&gt;档案管理&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;fas&quot;&gt;告警管理&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;fas&quot;&gt;权限管理&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;fas&quot;&gt;权限管理&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;fas&quot;&gt;系统设置&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;#&quot; class=&quot;fas&quot;&gt;大屏端&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;main_content&quot;&gt;
+            &lt;div class=&quot;header&quot;&gt;欢迎光临楠博科技————井盖卫士后台管理系统&lt;/div&gt;
+            &lt;div class=&quot;info&quot;&gt;
+                &lt;div&gt;
+                    楠楠太厉害了！
+                &lt;/div&gt;
+                &lt;div&gt;
+                    555，楠楠我的楠楠！
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h4 id="css部分"><a href="#css部分" class="headerlink" title="css部分"></a>css部分</h4><pre><code class="css">@import url(&#39;https://fonts.googleapis.com/css?family=Josefin+Sans&amp;display=swap&#39;);
+
+
+*&#123;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    /* 下划线消失 */
+    text-decoration: none;
+    font-family: &#39;Josefin Sans&#39;, sans-serif;
+&#125;
+
+body&#123;
+    background-color: #f3f5f9;
+&#125;
+
+.wrapper&#123;
+    /*弹性布局*/
+    display: flex;
+    /*相对定位*/
+    position: relative;
+&#125;
+
+.wrapper .sidebar&#123;
+    width: 200px;
+    height: 100%;
+    background-color: #4b4276;
+    padding: 30px 0px;
+    /*生成绝对定位的元素*/
+    position: fixed;
+&#125;
+
+.wrapper .sidebar h2&#123;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+&#125;
+
+.wrapper .sidebar ul li:hover&#123;
+    background-color: #594f8d;
+&#125;
+
+.wrapper .sidebar ul li&#123;
+    padding: 15px;
+    border-bottom: 1px solid #bdb8d7;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(255,255,255,0.05);
+&#125;
+
+.wrapper .sidebar ul li:hover a&#123;
+    color: #fff;
+&#125;
+
+.wrapper .sidebar ul li a&#123;
+    padding-left: 15px;
+    color: #bdb8d7;
+    display: block;
+&#125;
+
+.wrapper .main_content&#123;
+    width: 100%;
+    margin-left: 200px;
+&#125;
+
+.wrapper .main_content .header&#123;
+    padding: 20px;
+    background-color: #fff;
+    color: #717171;
+    border-bottom: 1px solid #e0e4e8;
+&#125;
+
+.wrapper .main_content .info&#123;
+    margin: 20px;
+    color: #717171;
+    line-height: 25px;
+&#125;
+
+.wrapper .main_content .info div&#123;
+    margin-bottom: 20px;
+&#125;
+</code></pre>
 
     </div>
 

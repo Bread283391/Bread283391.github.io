@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bread || </title>
+    <title>Bread || Vue3</title>
     <meta name="author" content="一个软面包">
     <meta name="description" content=" ">
     <meta name="keywords" content=" ">
@@ -165,155 +165,113 @@
                 </div>
 
                 <div id="main">
-                    
-<div id="archives">
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/23" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/23</div>
-                <a href="/2022/10/23/Vue3/">
-                    <h3>Vue3</h3>
-                </a>
-                <div class="info">
-                    
+                     
+<link rel="stylesheet" href="/css/post-body.css">
+<div class="article">
+    <div>
+        <h1>Vue3 </h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <a-icon type="calendar" theme="filled" />
+            </span>
+            2022/10/23
+        </span>
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/21" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/21</div>
-                <a href="/2022/10/21/Unity/">
-                    <h3>Unity</h3>
-                </a>
-                <div class="info">
-                    
+        
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/21" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/21</div>
-                <a href="/2022/10/21/UE5/">
-                    <h3>UE5</h3>
-                </a>
-                <div class="info">
-                    
+        
+    </div>
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/19" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/19</div>
-                <a href="/2022/10/19/前端开发/">
-                    <h3>前端开发</h3>
-                </a>
-                <div class="info">
-                    
+    <div class="content" v-pre>
+        <p> Vue学习笔记</p>
+<span id="more"></span>
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/19" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/19</div>
-                <a href="/2022/10/19/有用的知识/">
-                    <h3>有用的知识</h3>
-                </a>
-                <div class="info">
-                    
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/19" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/19</div>
-                <a href="/2022/10/19/Git/">
-                    <h3>Git</h3>
-                </a>
-                <div class="info">
-                    
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/19" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/19</div>
-                <a href="/2022/10/19/Hexo/">
-                    <h3>Hexo</h3>
-                </a>
-                <div class="info">
-                    
+<h1 id="1、创建Vue项目"><a href="#1、创建Vue项目" class="headerlink" title="1、创建Vue项目"></a>1、创建Vue项目</h1><p>需掌握知识：HTML、CSS、Javascript</p>
+<p>使用工具：Node.js、Idea_Profession、Vue3</p>
+<p>详戳<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46017272/article/details/123890985"> Idea创建vue项目</a></p>
+<p>Vue3官方文档： <a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/introduction.html">简介 | Vue.js (vuejs.org)</a></p>
+<h1 id="2、Vue的使用"><a href="#2、Vue的使用" class="headerlink" title="2、Vue的使用"></a>2、Vue的使用</h1><h2 id="初步使用"><a href="#初步使用" class="headerlink" title="初步使用"></a>初步使用</h2><pre><code class="Vue">&lt;script&gt;
+  export default &#123;
+    data()&#123;
+      return&#123;
+        name: &#39;司文轩&#39;,
+        age: 56
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;p&gt;&#123;&#123;name&#125;&#125;&lt;/p&gt;
+    &lt;p&gt;&#123;&#123;age&#125;&#125;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p><img src="/2022/10/23/Vue3/1.png" alt="1"></p>
+<h2 id="按钮"><a href="#按钮" class="headerlink" title="按钮"></a>按钮</h2><pre><code class="vue">&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;p&gt;&#123;&#123;name&#125;&#125;&lt;/p&gt;
+    &lt;p&gt;&#123;&#123;age&#125;&#125;&lt;/p&gt;
+    &lt;!-- &lt;button @click=&quot;方法名&quot;&gt;按钮名&lt;/button&gt; --&gt;
+    &lt;button @click=&quot;changeName&quot;&gt;改名字&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p><img src="/2022/10/23/Vue3/3.png" alt="3"></p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><pre><code class="vue">&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        name: &#39;司文轩&#39;,
+        age: 56
+      &#125;
+    &#125;,
+    methods: &#123;
+      // 给Vue定义方法
+      changeName: function () &#123;
+        // this指向Vue实例
+        this.name = &#39;王八蛋&#39;
+      &#125;
+    &#125;
+  &#125;
+&lt;/script&gt;
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/19" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/19</div>
-                <a href="/2022/10/19/Theme/">
-                    <h3>Theme</h3>
-                </a>
-                <div class="info">
-                    
+&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;p&gt;&#123;&#123;name&#125;&#125;&lt;/p&gt;
+    &lt;p&gt;&#123;&#123;age&#125;&#125;&lt;/p&gt;
+    &lt;button @click=&quot;changeName&quot;&gt;改名字&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p><img src="/2022/10/23/Vue3/2.png" alt="2"></p>
+<h2 id="动态修改页面元素"><a href="#动态修改页面元素" class="headerlink" title="动态修改页面元素"></a>动态修改页面元素</h2><h3 id="v-html"><a href="#v-html" class="headerlink" title="v-html"></a>v-html</h3><pre><code class="vue">&lt;script&gt;
+  export default &#123;
+    data() &#123;
+      return &#123;
+        mes: &#39;&lt;h1&gt;大标题&lt;h1&gt;&#39;,
+      &#125;;
+    &#125;,
+  &#125;;
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
-    
-    <a-timeline>
-        <a-timeline-item timestamp="2022/10/18" placement="top" color="#a5c2f5">
-            <a-card hoverable>
-                <div class="item-time">2022/10/18</div>
-                <a href="/2022/10/18/hello-world/">
-                    <h3>Hello World</h3>
-                </a>
-                <div class="info">
-                    
+&lt;/script&gt;
+&lt;template&gt;
+  &lt;div id=&quot;app&quot;&gt;
+    &lt;p&gt;&#123;&#123;mes&#125;&#125;&lt;/p&gt;
+    &lt;p v-html=&quot;mes&quot;&gt;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p><img src="/2022/10/23/Vue3/4.png" alt="4"></p>
 
-                    
-                </div>
-            </a-card>
-        </a-timeline-item>
-    </a-timeline>
+    </div>
+
     
 </div>
-
                      
 <footer id="footer">
     <div class="footer-wrap">
